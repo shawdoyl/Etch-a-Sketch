@@ -1,14 +1,12 @@
 ﻿Public Class Form1
+    Public graph As Graphics
 
-    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles Me.MouseMove
-
-        Me.Text = "x: " & e.X & " y: " & e.Y & " Mouse Button: " & e.Button.ToString
+    Private Sub GraphicsForm_MouseMove(sender As Object, e As MouseEventArgs) Handles PictureBox.MouseMove
 
         'create graphics object
-        Dim graph As Graphics
-        graph = Me.CreateGraphics
+        graph = PictureBox.CreateGraphics
 
-        Dim penColor As Color
+        Static penColor As Color
         If penColor.IsEmpty = True Then
             penColor = Color.Black
         End If
@@ -37,8 +35,12 @@
         graph.Dispose()
 
     End Sub
+    Private Sub GraphicsForm_MouseDown(sender As Object, e As MouseEventArgs) Handles Me.MouseDown
+        Me.Text = e.Button.ToString
+    End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        graph.Dispose()
 
     End Sub
 
@@ -46,16 +48,35 @@
         Me.Close()
     End Sub
 
-    Private Sub WaveformButton_Click(sender As Object, e As EventArgs) Handles WaveformButton.Click
+    Private Sub WaveformButton_Click(sender As Object, e As EventArgs) Handles DrawWaveformsButton.Click
+
+        'create graphics object
+        Dim graph As Graphics
+        graph = PictureBox.CreateGraphics
+
+        'constructor for pen object
+        Dim myPen As New Pen(Color.Black)
+
+        'draw the line
+        graph.DrawLine(myPen, 10, 10, 200, 200)
+
+        'free up resources
+        myPen.Dispose()
+        graph.Dispose()
 
     End Sub
 
-    Private Sub ColorButton_Click(sender As Object, e As EventArgs) Handles ColorButton.Click
-        Static penColor As Color
-        Dim myPen As New Pen(penColor)
 
-        ColorDialog1.ShowDialog()
-        penColor = ColorDialog1.Color
-        myPen.Color = penColor
+    Private Sub ColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click
+
     End Sub
+
+    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click, AboutToolStripMenuItem1.Click
+        MsgBox("Etch-A-Sketch program Beta Version 1.0.001" & vbNewLine _
+               & "Doyle Shaw" & vbNewLine _
+               & "Fall 2020" & vbNewLine _
+               & "RCET0265" & vbNewLine _
+               & "In association with Al's Toy Barn.")
+    End Sub
+
 End Class
