@@ -46,6 +46,7 @@
         Dim x, y As Integer
         Dim intSpacing As Integer = 50
 
+        PictureBox.Image = Nothing
         graph = PictureBox.CreateGraphics
         x = PictureBox.Width
         For y = 0 To PictureBox.Height Step intSpacing
@@ -62,6 +63,7 @@
         SelectColorToolStripMenuItem.Click, SelectColorToolStripMenuItem1.Click
         ColorDialog1.ShowDialog()
         penColor = ColorDialog1.Color
+        SelectColorButton.BackColor = penColor
     End Sub
     Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click, AboutToolStripMenuItem1.Click
         MsgBox("Etch-A-Sketch program Beta Version 1.0.001" & vbNewLine _
