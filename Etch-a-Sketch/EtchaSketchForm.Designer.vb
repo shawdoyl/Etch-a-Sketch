@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class EtchaSketchForm
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class EtchaSketchForm
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Me.PictureBox = New System.Windows.Forms.PictureBox()
@@ -48,6 +48,10 @@ Partial Class EtchaSketchForm
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
+        Me.ColorLabel = New System.Windows.Forms.Label()
+        Me.WaveformLabel = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.FontDialog1 = New System.Windows.Forms.FontDialog()
         CType(Me.PictureBox, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ContextMenuStrip1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
@@ -55,7 +59,11 @@ Partial Class EtchaSketchForm
         '
         'PictureBox
         '
+        Me.PictureBox.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PictureBox.BackColor = System.Drawing.Color.Silver
+        Me.PictureBox.Cursor = System.Windows.Forms.Cursors.Cross
         Me.PictureBox.Location = New System.Drawing.Point(12, 38)
         Me.PictureBox.Name = "PictureBox"
         Me.PictureBox.Size = New System.Drawing.Size(500, 400)
@@ -64,7 +72,9 @@ Partial Class EtchaSketchForm
         '
         'ExitButton
         '
-        Me.ExitButton.Location = New System.Drawing.Point(518, 236)
+        Me.ExitButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ExitButton.DialogResult = System.Windows.Forms.DialogResult.Cancel
+        Me.ExitButton.Location = New System.Drawing.Point(518, 378)
         Me.ExitButton.Name = "ExitButton"
         Me.ExitButton.Size = New System.Drawing.Size(164, 60)
         Me.ExitButton.TabIndex = 3
@@ -74,7 +84,8 @@ Partial Class EtchaSketchForm
         '
         'DrawWaveformsButton
         '
-        Me.DrawWaveformsButton.Location = New System.Drawing.Point(518, 104)
+        Me.DrawWaveformsButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DrawWaveformsButton.Location = New System.Drawing.Point(518, 153)
         Me.DrawWaveformsButton.Name = "DrawWaveformsButton"
         Me.DrawWaveformsButton.Size = New System.Drawing.Size(164, 60)
         Me.DrawWaveformsButton.TabIndex = 1
@@ -84,17 +95,19 @@ Partial Class EtchaSketchForm
         '
         'SelectColorButton
         '
-        Me.SelectColorButton.Location = New System.Drawing.Point(518, 38)
+        Me.SelectColorButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.SelectColorButton.BackColor = System.Drawing.Color.Black
+        Me.SelectColorButton.Location = New System.Drawing.Point(519, 62)
         Me.SelectColorButton.Name = "SelectColorButton"
         Me.SelectColorButton.Size = New System.Drawing.Size(164, 60)
         Me.SelectColorButton.TabIndex = 0
-        Me.SelectColorButton.Text = "Select Color"
         Me.ToolTip1.SetToolTip(Me.SelectColorButton, "Button used to select a color")
-        Me.SelectColorButton.UseVisualStyleBackColor = True
+        Me.SelectColorButton.UseVisualStyleBackColor = False
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(518, 170)
+        Me.ClearButton.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ClearButton.Location = New System.Drawing.Point(518, 249)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(164, 60)
         Me.ClearButton.TabIndex = 2
@@ -118,7 +131,7 @@ Partial Class EtchaSketchForm
         'ExitToolStripMenuItem1
         '
         Me.ExitToolStripMenuItem1.Name = "ExitToolStripMenuItem1"
-        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem1.Size = New System.Drawing.Size(93, 22)
         Me.ExitToolStripMenuItem1.Text = "Exit"
         Me.ExitToolStripMenuItem1.ToolTipText = "Closes the program."
         '
@@ -132,21 +145,21 @@ Partial Class EtchaSketchForm
         'SelectColorToolStripMenuItem1
         '
         Me.SelectColorToolStripMenuItem1.Name = "SelectColorToolStripMenuItem1"
-        Me.SelectColorToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.SelectColorToolStripMenuItem1.Size = New System.Drawing.Size(164, 22)
         Me.SelectColorToolStripMenuItem1.Text = "Select Color"
         Me.SelectColorToolStripMenuItem1.ToolTipText = "Button used to select a color"
         '
         'DrawWaveformsToolStripMenuItem1
         '
         Me.DrawWaveformsToolStripMenuItem1.Name = "DrawWaveformsToolStripMenuItem1"
-        Me.DrawWaveformsToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.DrawWaveformsToolStripMenuItem1.Size = New System.Drawing.Size(164, 22)
         Me.DrawWaveformsToolStripMenuItem1.Text = "Draw Waveforms"
         Me.DrawWaveformsToolStripMenuItem1.ToolTipText = "Button used to Draw waveforms"
         '
         'ClearToolStripMenuItem1
         '
         Me.ClearToolStripMenuItem1.Name = "ClearToolStripMenuItem1"
-        Me.ClearToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.ClearToolStripMenuItem1.Size = New System.Drawing.Size(164, 22)
         Me.ClearToolStripMenuItem1.Text = "Clear"
         Me.ClearToolStripMenuItem1.ToolTipText = "Button used to clear the Drawing area"
         '
@@ -160,7 +173,7 @@ Partial Class EtchaSketchForm
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'MenuStrip1
@@ -182,7 +195,7 @@ Partial Class EtchaSketchForm
         'ExitToolStripMenuItem
         '
         Me.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem"
-        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ExitToolStripMenuItem.Size = New System.Drawing.Size(93, 22)
         Me.ExitToolStripMenuItem.Text = "Exit"
         Me.ExitToolStripMenuItem.ToolTipText = "Closes the program."
         '
@@ -196,21 +209,21 @@ Partial Class EtchaSketchForm
         'SelectColorToolStripMenuItem
         '
         Me.SelectColorToolStripMenuItem.Name = "SelectColorToolStripMenuItem"
-        Me.SelectColorToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.SelectColorToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.SelectColorToolStripMenuItem.Text = "Select Color"
         Me.SelectColorToolStripMenuItem.ToolTipText = "Button used to select a color"
         '
         'DrawWaveformsToolStripMenuItem
         '
         Me.DrawWaveformsToolStripMenuItem.Name = "DrawWaveformsToolStripMenuItem"
-        Me.DrawWaveformsToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.DrawWaveformsToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.DrawWaveformsToolStripMenuItem.Text = "Draw Waveforms"
         Me.DrawWaveformsToolStripMenuItem.ToolTipText = "Button used to Draw waveforms"
         '
         'ClearToolStripMenuItem
         '
         Me.ClearToolStripMenuItem.Name = "ClearToolStripMenuItem"
-        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.ClearToolStripMenuItem.Size = New System.Drawing.Size(164, 22)
         Me.ClearToolStripMenuItem.Text = "Clear"
         Me.ClearToolStripMenuItem.ToolTipText = "Button used to clear the Drawing area"
         '
@@ -224,8 +237,44 @@ Partial Class EtchaSketchForm
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(180, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'ColorLabel
+        '
+        Me.ColorLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ColorLabel.AutoSize = True
+        Me.ColorLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ColorLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.ColorLabel.Location = New System.Drawing.Point(518, 39)
+        Me.ColorLabel.Name = "ColorLabel"
+        Me.ColorLabel.Size = New System.Drawing.Size(107, 20)
+        Me.ColorLabel.TabIndex = 7
+        Me.ColorLabel.Text = "Select Color"
+        '
+        'WaveformLabel
+        '
+        Me.WaveformLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.WaveformLabel.AutoSize = True
+        Me.WaveformLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.WaveformLabel.ForeColor = System.Drawing.SystemColors.Control
+        Me.WaveformLabel.Location = New System.Drawing.Point(521, 134)
+        Me.WaveformLabel.Name = "WaveformLabel"
+        Me.WaveformLabel.Size = New System.Drawing.Size(144, 20)
+        Me.WaveformLabel.TabIndex = 8
+        Me.WaveformLabel.Text = "Draw Waveforms"
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Italic), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.ForeColor = System.Drawing.SystemColors.Control
+        Me.Label1.Location = New System.Drawing.Point(521, 226)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(62, 20)
+        Me.Label1.TabIndex = 9
+        Me.Label1.Text = "Eraser"
         '
         'EtchaSketchForm
         '
@@ -235,12 +284,16 @@ Partial Class EtchaSketchForm
         Me.BackColor = System.Drawing.Color.Red
         Me.CancelButton = Me.ExitButton
         Me.ClientSize = New System.Drawing.Size(695, 449)
+        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.WaveformLabel)
+        Me.Controls.Add(Me.ColorLabel)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.SelectColorButton)
         Me.Controls.Add(Me.DrawWaveformsButton)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.PictureBox)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "EtchaSketchForm"
         Me.Text = "Etch-A-Sketch"
@@ -278,4 +331,8 @@ Partial Class EtchaSketchForm
     Friend WithEvents ClearToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents HelpToolStripMenuItem1 As ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents ColorLabel As Label
+    Friend WithEvents WaveformLabel As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents FontDialog1 As FontDialog
 End Class
