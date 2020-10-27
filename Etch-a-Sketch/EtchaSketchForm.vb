@@ -62,8 +62,12 @@ Option Explicit OnImports System.MathPublic Class EtchaSketchForm    Public 
         g.ScaleTransform(xScale, yScale)
         g.TranslateTransform(0, (yMax * -1))
         For xCurrent = 0 To 360
-            yCurrent = yMax * Tan((PI / 180) * xCurrent)
-            g.DrawLine(pen, CInt(xOld), CInt(yOld), CInt(xCurrent), CInt(yCurrent))
+            Try
+                yCurrent = yMax * Tan((PI / 180) * xCurrent)
+                g.DrawLine(pen, CInt(xOld), CInt(yOld), CInt(xCurrent), CInt(yCurrent))
+            Catch As Exception
+            End Try
+
             xOld = xCurrent
             yOld = yCurrent
         Next
@@ -112,4 +116,8 @@ Option Explicit OnImports System.MathPublic Class EtchaSketchForm    Public 
                   & "Fall 2020" & vbNewLine _
                   & "RCET0265" & vbNewLine _
                   & "In association with Al's Toy Barn.")    End Sub
+    Private Sub EtchaSketchForm_Resize(sender As Object, e As EventArgs) Handles Me.Resize
+        graph = PictureBox.CreateGraphics
+        graph.Clear(Color.Silver)
+    End Sub
 End Class
