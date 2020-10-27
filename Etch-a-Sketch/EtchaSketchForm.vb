@@ -65,7 +65,8 @@ Option Explicit OnImports System.MathPublic Class EtchaSketchForm    Public 
             Try
                 yCurrent = yMax * Tan((PI / 180) * xCurrent)
                 g.DrawLine(pen, CInt(xOld), CInt(yOld), CInt(xCurrent), CInt(yCurrent))
-            Catch As Exception
+            Catch ex As Exception
+
             End Try
 
             xOld = xCurrent
@@ -110,7 +111,7 @@ Option Explicit OnImports System.MathPublic Class EtchaSketchForm    Public 
         DrawGraphLines()
         DrawSinWave()
         DrawCosWave()
-        'DrawTanWave()
+        DrawTanWave()
     End Sub    Private Sub ColorButton_Click(sender As Object, e As EventArgs) Handles SelectColorButton.Click,        SelectColorToolStripMenuItem.Click, SelectColorToolStripMenuItem1.Click        ColorDialog1.ShowDialog()        penColor = ColorDialog1.Color        SelectColorButton.BackColor = penColor    End Sub    Private Sub AboutToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AboutToolStripMenuItem.Click, AboutToolStripMenuItem1.Click        MsgBox("Etch-A-Sketch program Beta Version 1.0.001" & vbNewLine _
                   & "Doyle Shaw" & vbNewLine _
                   & "Fall 2020" & vbNewLine _
